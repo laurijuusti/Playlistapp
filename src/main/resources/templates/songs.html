@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>All Songs</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+
+    <div th:insert="~{fragments/header :: header}"></div>
+
+    <main>
+    <h1>All Songs</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Artist</th>
+                <th>Album</th>
+                <th>Genre</th>
+                <th>Release Year</th>
+                <th>Duration</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="song : ${songs}">
+                <td th:text="${song.name}">Song Name</td>
+                <td th:text="${song.artist}">Artist</td>
+                <td th:text="${song.album}">Album</td>
+                <td th:text="${song.genre}">Genre</td>
+                <td th:text="${song.releaseYear}">Year</td>
+                <td th:text="${song.duration}">Duration</td>
+                <td>    <a th:href="@{/choose-playlist/{id}(id=${song.id})}">Add to Playlist</a>    </td>
+            </tr>
+        </tbody>
+    </table>
+
+    </main>
+
+    <div th:insert="~{fragments/footer :: footer}"></div>
+</body>
+
+</html>

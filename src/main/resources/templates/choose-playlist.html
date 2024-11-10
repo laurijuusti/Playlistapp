@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Choose Playlist</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+    <h1>Select a Playlist</h1>
+    <form th:action="@{/choose-playlist/{songId}(songId=${songId})}" method="post">
+        <label for="playlist">Choose a playlist:</label>
+        <select name="playlistId" id="playlist">
+            <option th:each="playlist : ${playlists}" th:value="${playlist.id}" th:text="${playlist.name}">Playlist
+            </option>
+        </select>
+        <button type="submit">Add to Playlist</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>All Playlists</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+
+    <div th:insert="~{fragments/header :: header}"></div>
+    <main>
+
+    <h1>Add a Playlist</h1>
+    <form th:action="@{/playlists/create}" method="post" th:object="${playlist}">
+        <label for="playlistName">Create a New Playlist:</label>
+        <input type="text" id="playlistName" name="name" placeholder="Playlist Name" required>
+        <button type="submit">Create Playlist</button>
+    </form>
+
+    <h1>All Playlists</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Number of Songs</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="playlist : ${playlists}">
+                <td th:text="${playlist.name}">Playlist Name</td>
+                <td th:text="${playlist.songs.size()}">0</td>
+    
+            </tr>
+        </tbody>
+    </table>
+
+    </main>
+
+    <div th:insert="~{fragments/footer :: footer}"></div>
+</body>
+
+
+</html>

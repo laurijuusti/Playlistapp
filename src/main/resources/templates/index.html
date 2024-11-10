@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Music Playlist Manager</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+
+    <div th:insert="~{fragments/header :: header}"></div>
+
+    <main>
+        <h1>Welcome to the Music Playlist Manager</h1>
+        <p>Manage your songs and playlists easily, navigate the site using the top bar!</p>
+    </main>
+
+<div th:insert="~{fragments/footer :: footer}"></div>
+
+</body>
+
+</html>
