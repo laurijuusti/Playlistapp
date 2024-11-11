@@ -26,7 +26,7 @@ WORKDIR /app
 COPY --from=builder /app/target/finalproject-0.0.1-SNAPSHOT.jar /app/finalproject.jar
 
 # Expose the port that your app will run on
-EXPOSE 8080
+EXPOSE 10000
 
 # Run the application
 ENTRYPOINT ["java", "-jar", "finalproject.jar"]
