@@ -4,9 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import io.micrometer.common.lang.NonNullFields;
 import jakarta.persistence.Column;
 
 @Entity
+@NonNullFields
 public class Song {
 
     @Id
@@ -14,6 +16,7 @@ public class Song {
     private Long id;
 
     @Column(nullable = false)
+
     private String name;
 
     @Column(nullable = false)
@@ -25,7 +28,7 @@ public class Song {
 
     private Integer releaseYear;
 
-    private String duration; // seconds
+    private String duration;
 
     private String language;
 

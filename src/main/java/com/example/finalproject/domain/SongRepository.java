@@ -5,7 +5,6 @@ import java.util.List;
 
 public interface SongRepository extends JpaRepository<Song, Long> {
 
-    // Example custom query methods, if needed:
     List<Song> findByArtist(String artist);
 
     List<Song> findByGenre(String genre);

@@ -3,24 +3,26 @@
 body {
     font-family: 'Roboto Flex', sans-serif;
     background-color: #969696;
-    color: #fff;
+    color: #000000;
     text-align: center;
     margin: 0;
     padding: 20px;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     min-height: 100vh;
+    background: linear-gradient(180deg, #9e9e9e, #787878);
 }
 
 header,
 footer {
-    background-color: #787878;
     padding: 10px;
+    color: #000;
 }
 
 header a,
 footer a {
-    color: #fff;
+    color: #000;
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
@@ -32,19 +34,39 @@ footer a:hover {
 }
 
 main {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
+
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+table{
+    margin: auto;
+    color: #000;
+    border-collapse: collapse;
+    width: 60%;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
     margin: 0.5em 0;
 }
 
 p {
     margin: 0.5em 0;
+}
+
+td, a, tr{
+    padding: 5px 10px;
+}
+
+form{
+    padding: 25px;
+}
+
+tbody tr:hover {
+    background-color: #838383;
+    cursor: pointer;
 }

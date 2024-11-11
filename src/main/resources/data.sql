@@ -1,5 +1,15 @@
+TRUNCATE TABLE song, playlist, playlist_song;
+
+--Ylempi komento resetoi tietokannan aina kun sovellus uudelleenkäynnistyy, tämä ei tietenkään olisi tuotannossa kovin hyvä
+-- Nämä biisit lisätään tietokantaan sovelluksen käynnistyessä
+
 INSERT INTO song (name, artist, album, genre, release_year, duration, language, composer, lyrics_url) VALUES 
 ('Over', 'Playboi Carti', 'Whole Lotta Red', 'Rap', 2020, '3:30', 'English', 'Playboi Carti', 'http://example.com/lyrics1'),
-('Song 2', 'Artist 2', 'Album 2', 'Genre 2', 2021, '4:00', 'English', 'Composer 2', 'http://example.com/lyrics2'),
-('Song 3', 'Artist 3', 'Album 3', 'Genre 3', 2022, '2:45', 'English', 'Composer 3', 'http://example.com/lyrics3');
+('Kaksoiselämää', 'Juice Leskinen', 'Yölento', 'Suomirock', 1986, '5:08', 'Finnish', 'Juice Leskinen', 'http://example.com/lyrics2'),
+('Sweden', 'C418', 'Minecraft - Volume Alpha', 'Ambient', 2011, '3:35', 'English', 'C418', 'http://example.com/lyrics3');
 
+INSERT INTO playlist (name) VALUES
+('Playlist 1'), 
+('Playlist 2'),
+('Rap Songs'),
+('Pop');

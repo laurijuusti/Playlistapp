@@ -2,31 +2,30 @@ package com.example.finalproject.web;
 
 import com.example.finalproject.domain.Song;
 import com.example.finalproject.domain.SongRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/songs")
+@RequestMapping("/api/songs") // Mappingit REST-apia varten
 public class SongController {
 
     private final SongRepository songRepository;
 
-    @Autowired
     public SongController(SongRepository songRepository) {
         this.songRepository = songRepository;
     }
 
-    @GetMapping("/all")
+    @GetMapping("/all") // Selaimessa api/songs/all
+    @Cacheable("all") // Taas välimuistin käyttöä
     public List<Song> getAllSongs() {
         return songRepository.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}") // Selaimessa /api/songs/{id}
     public ResponseEntity<Song> getSongById(@PathVariable Long id) {
         Optional<Song> song = songRepository.findById(id);
         return song.map(ResponseEntity::ok)
@@ -59,6 +58,7 @@ public class SongController {
     }
 
     @DeleteMapping("/{id}")
+    // RESTful Delete-endpoint kappaleiden poistoa varten, esim Postmanilla
     public ResponseEntity<Void> deleteSong(@PathVariable Long id) {
         if (songRepository.existsById(id)) {
             songRepository.deleteById(id);

@@ -12,7 +12,8 @@ public class Playlist {
 
     private String name;
 
-    @ManyToMany
+    @ManyToMany // Songs-taulun ja playlist-taulun joinaus, tallentuu uuteen playlist_song
+                // tauluun
     @JoinTable(name = "playlist_song", joinColumns = @JoinColumn(name = "playlist_id"), inverseJoinColumns = @JoinColumn(name = "song_id"))
     private Set<Song> songs = new HashSet<>();
 

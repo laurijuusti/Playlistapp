@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>All Songs</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+    
+    <div th:insert="~{fragments/header :: header}"></div>
+
+    <h1 th:text="${playlist.name}">Playlist Name</h1>
+    <h2>Songs in this Playlist</h2>
+
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Song Name</th>
+                    <th>Artist</th>
+                    <th>Album</th>
+                    <th>Genre</th>
+                    <th>Release Year</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr th:each="song : ${songs}">
+                        <td th:text="${song.name}">Song Name</td>
+                        <td th:text="${song.artist}">Artist</td>
+                        <td th:text="${song.album}">Album</td>
+                        <td th:text="${song.genre}">Genre</td>
+                        <td th:text="${song.releaseYear}">Year</td>
+                        <td th:text="${song.duration}">Duration</td>
+                    </tr>
+                </tbody>
+            <a href="/playlists">Back to all playlists</a>
+        </table>
+    </main>
+
+<div th:insert="~{fragments/footer :: footer}"></div>
+
+</body>
