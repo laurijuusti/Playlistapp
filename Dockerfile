@@ -1,5 +1,5 @@
 # Use an official Maven image to build the application
-FROM maven:3.8.1-openjdk-11 as builder
+FROM maven:3.8.1-openjdk-17 as builder
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY src /app/src
 RUN mvn clean package -DskipTests
 
 # Use OpenJDK 11 as the runtime base image
-FROM openjdk:11-jre-slim
+FROM openjdk:17-alpine
 
 # Set the working directory inside the container
 WORKDIR /app
