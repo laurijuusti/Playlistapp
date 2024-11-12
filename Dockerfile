@@ -25,8 +25,14 @@ WORKDIR /app
 # Copy the generated JAR from the builder stage
 COPY --from=builder /app/target/finalproject-0.0.1-SNAPSHOT.jar /app/finalproject.jar
 
+# Optionally, copy the application.properties if it's externalized in the resources
+# You can include the application.properties directly in the Docker image.
+# If the file is in your resources folder, it should already be included in your JAR,
+# but if you have a custom path or want to externalize it, use the following line:
+# COPY src/main/resources/application.properties /app/application.properties
+
 # Expose the port that your app will run on
 EXPOSE 10000
 
-# Run the application
-ENTRYPOINT ["java", "-jar", "finalproject.jar"]
+# Set Spring Boot application properties via command line to bind to 0.0.0.0 and port 10000
+ENTRYPOINT ["java", "-Dserver.address=0.0.0.0", "-Dserver.port=10000", "-jar", "finalproject.jar"]
